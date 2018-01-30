@@ -1,8 +1,11 @@
 # Iris Classification in R
 
 Basic boilerplate code example for classification tasks. 
-test:
+
+#### Split data into train/test sets using createDataPartition()
 ```R
-percentage <- prop.table(table(dataset$Species)) * 100
-cbind(freq=table(dataset$Species), percentage=percentage)
+data_split <- createDataPartition(data$Species, p = 0.8, list = FALSE)
+
+test <- data[-data_split,] # Save 20% of data for test validation here
+dataset <- data[data_split,] # 80% of data 
 ```
