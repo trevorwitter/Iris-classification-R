@@ -211,7 +211,7 @@ print(fit.lda)
 #  Accuracy   Kappa
 #  0.9666667  0.95 
 ```
-96.6% accuracy on training data.. Not bad!
+96.6% accuracy on training data.. Not bad! Do keep in mind that this score is based on a small amount of predictions; the dataset is relatively small and when using 10 fold validation, evaluation is based on predictions made on 1/10th of the data.
 
 ### Evaluate Best Fit Model on Test Data
 ```R
