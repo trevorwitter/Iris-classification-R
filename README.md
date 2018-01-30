@@ -89,4 +89,4 @@ par(mfrow=c(1,4))
       boxplot(x[,i], main=names(iris)[i])
     }
 ```
-![Feature Boxplots](/blob/master/attribute_box_plots.pdf)
+![Feature Boxplots](Iris-classification-R/attribute_box_plots.pdf)
