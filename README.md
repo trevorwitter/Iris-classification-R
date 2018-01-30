@@ -80,4 +80,13 @@ Much like pandas pd.describe() in Python
 x <- dataset[,1:4] 
 y <- dataset[,5]
 ```
-The purpose of 
+The y label to predict for this model is Species, which is located at column 5 in the data frame. All other attribute columns are included as features in x
+
+### Feature Boxplots
+```R
+par(mfrow=c(1,4))
+    for(i in 1:4) {
+      boxplot(x[,i], main=names(iris)[i])
+    }
+```
+![Feature Boxplots](https://github.com/trevorwitter/Iris-classification-R/blob/master/attribute_box_plots.pdf)
