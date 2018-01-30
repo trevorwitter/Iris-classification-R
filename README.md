@@ -26,7 +26,7 @@ sapply(dataset, class)
 #Sepal.Length  Sepal.Width Petal.Length  Petal.Width      Species 
 #   "numeric"    "numeric"    "numeric"    "numeric"     "factor" 
 ```
-sapply() used to map function to each attribute; class function returns data class type for a given attribute
+`sapply()` used to map function to each attribute; class function returns data class type for a given attribute
 
 
 ### Data Frame Header
@@ -40,7 +40,7 @@ head(dataset)
 #6          5.4         3.9          1.7         0.4 Iris-setosa
 #8          5.0         3.4          1.5         0.2 Iris-setosa
 ```
-Much like pandas' df.head() in Python
+Much like pandas `df.head()` in Python
 
 
 ### Y Class Levels
@@ -73,7 +73,7 @@ summary(dataset)
 # 3rd Qu.:6.425   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.825                       
 # Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500         
 ```
-Much like pandas pd.describe() in Python
+Much like pandas `pd.describe()` in Python
 
 ### Separate training data (x) from labels (y)
 ```R
@@ -97,7 +97,7 @@ par(mfrow=c(1,4))
 plot(y)
 ```
 ![Bar Plots](https://github.com/trevorwitter/Iris-classification-R/blob/master/class_bar_plot.jpg)
-Not particulary interesting looking in this case. This will be useful to visualize [class imbalance](https://www.analyticsvidhya.com/blog/2017/03/imbalanced-classification-problem/) in future projects. 
+Not particulary interesting looking in this case. This will be useful to identify [class imbalance](https://www.analyticsvidhya.com/blog/2017/03/imbalanced-classification-problem/) in future projects. 
 
 
 ### Scatterplot Matrix
@@ -105,4 +105,11 @@ Not particulary interesting looking in this case. This will be useful to visuali
 featurePlot(x=x, y=y, plot="ellipse")
 ```
 ![Scatterplot Matrix](https://github.com/trevorwitter/Iris-classification-R/blob/master/scatter_plot_matrix.jpg)
-`featurePlot()` provides a quick and easy data-concentration ellipses in the off-diagonal panels
+`featurePlot()` with `plot="ellipse"` provides a quick and easy data-concentration ellipses in the off-diagonal panels
+
+### Boxplots for each feature
+```R
+featurePlot(x=x, y=y, plot="box")
+```
+![Boxplots](https://github.com/trevorwitter/Iris-classification-R/blob/master/box_whisker_plot.jpg)
+`featurePlot` with `plot="box"` provides box plot with whiskers for each attribute grouped by y class
