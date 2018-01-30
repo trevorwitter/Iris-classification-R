@@ -93,6 +93,16 @@ par(mfrow=c(1,4))
 ![Boxplots](https://github.com/trevorwitter/Iris-classification-R/blob/master/attribute_box_plots.jpg)
 
 ### Y Label Bar Plot
+```R
 plot(y)
+```
 ![Bar Plots](https://github.com/trevorwitter/Iris-classification-R/blob/master/class_bar_plot.jpg)
 Not particulary interesting looking in this case. This will be useful to visualize [class imbalance](https://www.analyticsvidhya.com/blog/2017/03/imbalanced-classification-problem/) in future projects. 
+
+
+### Scatterplot Matrix
+```R
+featurePlot(x=x, y=y, plot="ellipse")
+```
+![Scatterplot Matrix](https://github.com/trevorwitter/Iris-classification-R/blob/master/scatter_plot_matrix.jpg)
+`featurePlot()` provides a quick and easy data-concentration ellipses in the off-diagonal panels
