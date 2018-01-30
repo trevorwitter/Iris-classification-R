@@ -89,4 +89,5 @@ par(mfrow=c(1,4))
       boxplot(x[,i], main=names(iris)[i])
     }
 ```
-![Boxplots](https://octodex.github.com/images/yaktocat.png)
+
+![Boxplots](https://github.com/trevorwitter/Iris-classification-R/blob/master/attribute_box_plots.pdf)
