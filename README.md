@@ -2,7 +2,13 @@
 
 Basic boilerplate code example for supervised learning classification tasks. Dataset obtained from [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Iris)
 
-#### Split data into train/test sets using createDataPartition()
+The following code uses  the [R caret package](https://cran.r-project.org/web/packages/caret/index.html)
+
+```R
+library("caret")
+```
+
+### Split data into train/test sets using createDataPartition()
 ```R
 data_split <- createDataPartition(data$Species, p = 0.8, list = FALSE)
 
