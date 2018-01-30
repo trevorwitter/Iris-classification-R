@@ -112,4 +112,97 @@ featurePlot(x=x, y=y, plot="ellipse")
 featurePlot(x=x, y=y, plot="box")
 ```
 ![Boxplots](https://github.com/trevorwitter/Iris-classification-R/blob/master/box_whisker_plot.jpg)
-`featurePlot` with `plot="box"` provides box plot with whiskers for each attribute grouped by y class
+`featurePlot()` with `plot="box"` provides box plot with whiskers for each attribute grouped by y class
+
+
+### Density Plots
+```R
+scales <- list(x=list(relation="free"), y=list(relation="free"))
+featurePlot(x=x, y=y, plot="density", scales=scales)
+```
+![Density Plots](https://github.com/trevorwitter/Iris-classification-R/blob/master/density_plots.jpg)
+`featurePlot()` with `plot="density"` provides density plots for each attribute grouped by y class
+
+## Machine Learning Algorithm Evaluation
+Algorithms assessed using 10-fold crossvalidation. Metric for assessment in this example is accuracy. This can be modified here for future projects
+```R
+control <- trainControl(method="cv", number=10)
+metric <- "Accuracy"
+```
+
+### Linear Discriminant Analyis
+```R
+set.seed(7)
+fit.lda <- train(Species~., data=dataset, method="lda", metric=metric, trControl=control)
+```
+
+### Classification and Regression Trees
+```R
+set.seed(7)
+fit.cart <- train(Species~., data=dataset, method="rpart", metric=metric, trControl=control)
+```
+
+### k-Nearest Neighbors
+```R
+set.seed(7)
+fit.knn <- train(Species~., data=dataset, method="knn", metric=metric, trControl=control)
+```
+
+### Support Vector Machines
+```R
+set.seed(7)
+fit.svm <- train(Species~., data=dataset, method="svmRadial", metric=metric, trControl=control)
+```
+
+### Random Forest
+```R
+set.seed(7)
+fit.rf <- train(Species~., data=dataset, method="rf", metric=metric, trControl=control)
+```
+
+### Summarize Model Accuracies
+```R
+results <- resamples(list(lda=fit.lda, cart=fit.cart, knn=fit.knn, svm=fit.svm, rf=fit.rf))
+summary(results)
+#Call:
+#summary.resamples(object = results)
+
+#Models: lda, cart, knn, svm, rf 
+#Number of resamples: 10 
+
+#Accuracy 
+#          Min.   1st Qu.    Median      Mean 3rd Qu. Max. NA's
+#lda  0.9166667 0.9166667 1.0000000 0.9666667       1    1    0
+#cart 0.8333333 0.9166667 1.0000000 0.9583333       1    1    0
+#knn  0.8333333 0.9375000 1.0000000 0.9666667       1    1    0
+#svm  0.8333333 1.0000000 1.0000000 0.9750000       1    1    0
+#rf   0.8333333 0.9166667 0.9583333 0.9500000       1    1    0
+
+#Kappa 
+#      Min. 1st Qu. Median   Mean 3rd Qu. Max. NA's
+#lda  0.875 0.87500 1.0000 0.9500       1    1    0
+#cart 0.750 0.87500 1.0000 0.9375       1    1    0
+#knn  0.750 0.90625 1.0000 0.9500       1    1    0
+#svm  0.750 1.00000 1.0000 0.9625       1    1    0
+#rf   0.750 0.87500 0.9375 0.9250       1    1    0
+```
+
+### Best Model Summary
+```R
+print(fit.lda)
+
+#Linear Discriminant Analysis 
+
+#120 samples
+#  4 predictor
+#  3 classes: 'Iris-setosa', 'Iris-versicolor', 'Iris-virginica' 
+
+#No pre-processing
+#Resampling: Cross-Validated (10 fold) 
+#Summary of sample sizes: 108, 108, 108, 108, 108, 108, ... 
+#Resampling results:
+
+#  Accuracy   Kappa
+#  0.9666667  0.95 
+```
+
