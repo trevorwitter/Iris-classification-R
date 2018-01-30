@@ -49,7 +49,7 @@ head(dataset)
 Much like pandas `df.head()` in Python
 
 
-### Y Class Levels
+### y Class Levels
 ```R
 levels(dataset$Species)
 #[1] "Iris-setosa"     "Iris-versicolor" "Iris-virginica" 
