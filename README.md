@@ -1,2 +1,3 @@
 # Iris Classification in R
-Classification of iris flowers in R.
+
+Basic boilerplate code example for classification tasks. 
