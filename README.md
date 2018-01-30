@@ -2,10 +2,7 @@
 
 Basic boilerplate code example for classification tasks. 
 test:
-```javascript
-function fancyAlert(arg) {
-  if(arg) {
-    $.facebox({div:'#foo'})
-  }
-}
+```R
+percentage <- prop.table(table(dataset$Species)) * 100
+cbind(freq=table(dataset$Species), percentage=percentage)
 ```
