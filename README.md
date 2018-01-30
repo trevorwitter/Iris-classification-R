@@ -1,6 +1,6 @@
 # Iris Classification in R
 
-Basic boilerplate code example for classification tasks. 
+Basic boilerplate code example for supervised learning classification tasks. Dataset obtained from [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Iris)
 
 #### Split data into train/test sets using createDataPartition()
 ```R
@@ -62,3 +62,22 @@ cbind(freq=table(dataset$Species), percentage=percentage)
 ```
 Lists frequency and percentage of each individual class level within Species attribute
 
+### Statistical Summary of Dataset
+```R
+summary(dataset)
+#  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width               Species  
+# Min.   :4.300   Min.   :2.200   Min.   :1.100   Min.   :0.100   Iris-setosa    :40  
+# 1st Qu.:5.175   1st Qu.:2.800   1st Qu.:1.575   1st Qu.:0.300   Iris-versicolor:40  
+# Median :5.800   Median :3.000   Median :4.400   Median :1.300   Iris-virginica :40  
+# Mean   :5.888   Mean   :3.091   Mean   :3.786   Mean   :1.222                       
+# 3rd Qu.:6.425   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.825                       
+# Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500         
+```
+Much like pandas pd.describe() in Python
+
+### Separate training data (x) from labels (y)
+```R
+x <- dataset[,1:4] 
+y <- dataset[,5]
+```
+The purpose of 
