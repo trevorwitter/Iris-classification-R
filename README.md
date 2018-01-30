@@ -12,16 +12,17 @@ dataset <- data[data_split,] # 80% of data
 
 ### Data Summary
 #### Dataset Dimensions
-Number of rows and columns 
 ```R
 dim(dataset)
 #[1] 120   5
 ```
+Number of rows and columns 
 
 #### List datatypes for attributes
-sapply() used to map function to each attribute; class function returns data class type for a given attribute
 ```R
 sapply(dataset, class)
 #Sepal.Length  Sepal.Width Petal.Length  Petal.Width      Species 
 #   "numeric"    "numeric"    "numeric"    "numeric"     "factor" 
 ```
+sapply() used to map function to each attribute; class function returns data class type for a given attribute
+
