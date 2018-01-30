@@ -205,4 +205,43 @@ print(fit.lda)
 #  Accuracy   Kappa
 #  0.9666667  0.95 
 ```
+96.6% accuracy on training data.. Not bad!
 
+### Evaluate Best Fit Model on Test Data
+```R
+predictions <- predict(fit.lda, test)
+confusionMatrix(predictions, test$Species)
+
+#Confusion Matrix and Statistics
+
+#                 Reference
+#Prediction        Iris-setosa Iris-versicolor Iris-virginica
+#  Iris-setosa              10               0              0
+#  Iris-versicolor           0              10              1
+#  Iris-virginica            0               0              9
+
+#Overall Statistics
+                                          
+#               Accuracy : 0.9667          
+#                 95% CI : (0.8278, 0.9992)
+#    No Information Rate : 0.3333          
+#    P-Value [Acc > NIR] : 2.963e-13       
+                                          
+#                  Kappa : 0.95            
+# Mcnemar's Test P-Value : NA              
+
+#Statistics by Class:
+
+#                     Class: Iris-setosa Class: Iris-versicolor Class: Iris-virginica
+#Sensitivity                      1.0000                 1.0000                0.9000
+#Specificity                      1.0000                 0.9500                1.0000
+#Pos Pred Value                   1.0000                 0.9091                1.0000
+#Neg Pred Value                   1.0000                 1.0000                0.9524
+#Prevalence                       0.3333                 0.3333                0.3333
+#Detection Rate                   0.3333                 0.3333                0.3000
+#Detection Prevalence             0.3333                 0.3667                0.3000
+#Balanced Accuracy                1.0000                 0.9750                0.9500
+```
+
+# Next Steps
+The next update will focus on hyperparameter tuning for best fit model 
