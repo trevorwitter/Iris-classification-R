@@ -11,8 +11,8 @@ dataset <- data[data_split,] # 80% of data
 ```
 
 
-### Data Summary
-#### Dataset Dimensions
+## Data Summary
+### Dataset Dimensions
 ```R
 dim(dataset)
 #[1] 120   5
@@ -20,11 +20,45 @@ dim(dataset)
 Number of rows and columns 
 
 
-#### List datatypes for attributes
+### List datatypes for attributes
 ```R
 sapply(dataset, class)
 #Sepal.Length  Sepal.Width Petal.Length  Petal.Width      Species 
 #   "numeric"    "numeric"    "numeric"    "numeric"     "factor" 
 ```
 sapply() used to map function to each attribute; class function returns data class type for a given attribute
+
+
+### Data Frame Header
+```R
+head(dataset)
+#  Sepal.Length Sepal.Width Petal.Length Petal.Width     Species
+#1          5.1         3.5          1.4         0.2 Iris-setosa
+#2          4.9         3.0          1.4         0.2 Iris-setosa
+#3          4.7         3.2          1.3         0.2 Iris-setosa
+#5          5.0         3.6          1.4         0.2 Iris-setosa
+#6          5.4         3.9          1.7         0.4 Iris-setosa
+#8          5.0         3.4          1.5         0.2 Iris-setosa
+```
+Much like pandas' df.head() in Python
+
+
+### Y Class Levels
+```R
+levels(dataset$Species)
+#[1] "Iris-setosa"     "Iris-versicolor" "Iris-virginica" 
+```
+Lists all unique class levels within the Species attribute of dataset
+
+
+### Class Distribution
+```R
+percentage <- prop.table(table(dataset$Species)) * 100
+cbind(freq=table(dataset$Species), percentage=percentage)
+#                freq percentage
+#Iris-setosa       40   33.33333
+#Iris-versicolor   40   33.33333
+#Iris-virginica    40   33.33333
+```
+Lists frequency and percentage of each individual class level within Species attribute
 
