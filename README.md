@@ -89,4 +89,4 @@ par(mfrow=c(1,4))
       boxplot(x[,i], main=names(iris)[i])
     }
 ```
-![Feature Boxplots](Iris-classification-R/attribute_box_plots.pdf)
+![Boxplots](https://render.githubusercontent.com/view/pdf?commit=5b9f8f6f976f6d443cb48313203776cea36bf531&enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f747265766f727769747465722f497269732d636c617373696669636174696f6e2d522f356239663866366639373666366434343363623438333133323033373736636561333662663533312f6174747269627574655f626f785f706c6f74732e706466&nwo=trevorwitter%2FIris-classification-R&path=attribute_box_plots.pdf&repository_id=119458781&repository_type=Repository#7b3b09bb-b90a-4b88-bcd9-916a846e32dc)
