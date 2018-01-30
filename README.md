@@ -1,2 +1,2 @@
-# Iris_classification_R
-Classification of iris flowers in R
+# Iris Classification in R
+Classification of iris flowers in R.
